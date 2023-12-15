@@ -1,0 +1,3 @@
+rasa run actions
+ngrok http 5002
+rasa run --port 5002 --connector slack --credentials credentials.yml --endpoints endpoitns.yml --log-file out.log --cors --enable-api  --debug

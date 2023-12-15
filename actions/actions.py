@@ -15,14 +15,9 @@ import json
 from datetime import datetime
 
 # actions.py
-import yaml
-
 
 def time_to_float(time_str):
-    # Parse the time string to a datetime object
     time_obj = datetime.strptime(time_str, "%H:%M")
-
-    # Convert the datetime object to a float representing hours
     time_float = time_obj.hour + time_obj.minute / 60.0
 
     return time_float
@@ -109,16 +104,11 @@ class ActionOrderFood(Action):
         return "action_order_food"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # Extract information from the user's message
+
         food_item = next(tracker.get_latest_entity_values("food_item"), None)
         quantity = next(tracker.get_latest_entity_values("quantity"), None)
         special_request = next(tracker.get_latest_entity_values("special_request"), None)
         with_ = next(tracker.get_latest_entity_values("with_"), None)
-
-
-
-        # Process the order logic here (e.g., update database, send to kitchen, etc.)
-        # You can access external APIs, databases, or any other services as needed
 
         if food_item is None:
             dispatcher.utter_message("I cant recognize your food. Write one more time")
@@ -158,7 +148,7 @@ class ActionOrderFood(Action):
                 f"Your order is not in our menu. Waiting time: {preparation_time} minutes:\nfood: {food_item}\nquantity: {quantity}")
 
 
-        # # Confirm the order to the user
+
         # if food_item and special_request and quantity:
         #     dispatcher.utter_message(f"Your order of {quantity} {food_item} {with_} {special_request} has been placed.")
         # elif food_item and quantity:
@@ -194,18 +184,3 @@ class ActionShowMenu(Action):
         dispatcher.utter_message(text=menu_message)
 
         return []
-
-# class ActionShowMenu(Action):
-#     def name(self) -> Text:
-#         return "action_show_menu"
-#
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         with open("config.yml", "r") as file:
-#             config_data = yaml.safe_load(file)
-#
-#         menu_items = config_data.get("menu_items", [])
-#         menu_text = "\n".join([f"{item['name']}: ${item['price']} - {item['preparation_time']} mins" for item in menu_items])
-#
-#         dispatcher.utter_message(f"Our menu includes:\n{menu_text}")
-#
-#         return []

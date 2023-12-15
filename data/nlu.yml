@@ -49,7 +49,7 @@ nlu:
     - Give me [2](quantity) [Lasagne](food_item).
     - Can I get a [Burger](food_item) [with](with_) [extra cheese](special_request)?
     - Can I get a [Burger](food_item) [without](with_) [onion](special_request)?
-    - Can I get a [medium rare](special_request)[Burger](food_item)?
+    - Can I get a [medium rare](special_request) [Burger](food_item)?
     - I'd like [Spaghetti Carbonara](food_item) [with](with_) [extra bacon](special_request).
     - I'd like [Spaghetti Carbonara](food_item) with [double cheese](special_request).
     - Order [Lasagne](food_item) [with](with_) [no onions](special_request).
