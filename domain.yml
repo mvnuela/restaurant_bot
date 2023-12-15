@@ -1,0 +1,94 @@
+version: "3.1"
+
+intents:
+  - show_opening_hours
+  - thanks_giving
+  - check_if_open
+  - menu
+  - order_food
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_order_confirmation:
+  - text: "Your order has been confirmed. Thank you for choosing us!"
+
+  utter_help:
+    - text: "Great! How can I help you more?"
+
+actions:
+- action_show_opening_hours
+- action_show_menu
+- action_order_food
+- action_get_open_information
+
+entities:
+- special_request
+- food_item
+- quantity
+- time_
+- day_
+- with_
+
+lookups:
+  - day_:
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+      - Sunday
+  - food_item:
+      - Tiramisu
+      - Hot-dog
+      - Spaghetti Carbonara
+      - Lasagne
+      - Pizza
+      - Burger
+      - Tea
+      - Soup
+      - Kebab
+      - Coffe
+      - Bear
+      - Wine
+      - Pierogi
+      - Nuggets
+  - quantity:
+      - One
+      - Two
+      - Three
+      - Four
+      - Five
+      - 1
+      - 2
+      - 3
+      - 4
+      -
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

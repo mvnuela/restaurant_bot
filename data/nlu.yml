@@ -1,0 +1,154 @@
+version: "3.1"
+
+nlu:
+- intent: show_opening_hours
+  examples: |
+    - show me opening hours
+    - Show me your workdays
+    - When you work?
+    - When you are open?
+    - Are you open during the weekend?
+
+- intent: check_if_open
+  examples: |
+    - Are you open on [Monday](day_)?
+    - Are you open on [Thursday](day_)?
+    - What are your hours on [Wednesday](day_)?
+    - Is it open on [Friday](day_)?
+    - Is the restaurant open on [Saturday](day_)?
+    - Are you working on [Tuesday](day_)?
+    - Are you working on [Sunday](day_)?
+    - Are you open on [Monday](day_) at [12:30](time_)?
+    - Are you open on [Thursday](day_) at [18:00](time_)?
+    - What are your hours on [Wednesday](day_)?
+    - Is it open on [Friday](day_) at [15:15](time_)?
+    - Is the restaurant open on [Saturday](day_) [13:00](time_)?
+    - Are you working on [Tuesday](day_) [11.00](time_)?
+    - Are you working on [Sunday](day_) [17:00](time_)?
+
+- intent: menu
+  examples: |
+    - show me menu
+    - Please, give me menu
+    - What can I order in this restaurant?
+    - What do you recommend?
+    - What can I eat here?
+    - What can you prepare for me?
+
+- intent: order_food
+  examples: |
+    - I want to order [Pizza](food_item).
+    - I want to order [hot-dog](food_item).
+    - I want to order [2](quantity) [Pizza](food_item) [with](with_) [ketchup](special_request).
+    - I want to order [2](quantity) [Tiramisu](food_item) [with](with_) [vegan milk](special_request).
+    - I want to order [five](quantity) [Tiramisu](food_item) [with](with_) [extra chocolate](special_request).
+    - I want [vegan](special_request) [Tiramisu](food_item). 
+    - I want to order [Tiramisu](food_item) prepared [with](with_) [lactose free cream](special_request).
+    - I want [three](quantity) [hot-dog](food_item) [with](with_) [double sauce](special_request).
+    - Please [4](quantity) [hot-dog](food_item).
+    - Give me [2](quantity) [Lasagne](food_item).
+    - Can I get a [Burger](food_item) [with](with_) [extra cheese](special_request)?
+    - Can I get a [Burger](food_item) [without](with_) [onion](special_request)?
+    - Can I get a [medium rare](special_request)[Burger](food_item)?
+    - I'd like [Spaghetti Carbonara](food_item) [with](with_) [extra bacon](special_request).
+    - I'd like [Spaghetti Carbonara](food_item) with [double cheese](special_request).
+    - Order [Lasagne](food_item) [with](with_) [no onions](special_request).
+    - Order [Lasagne](food_item) [without](with_) [tomato](special_request).
+
+- intent: thanks_giving
+  examples: |
+    - thank you
+    - thank you very much
+    - thanks
+    - thanks a lot
+
+#wygenerowane automatycznie
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad 
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

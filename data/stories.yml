@@ -1,0 +1,106 @@
+version: "3.1"
+
+stories:
+#- story: Check if restaurant is open on given time
+#  steps:
+#    - intent: greet
+#    - action: utter_greet
+#    - intent: check_if_open
+#      entities:
+#        - time_: "12:30"
+#    - action: action_get_open_information
+#    - intent: thanks_giving
+
+- story: Check if restaurant is open on given day
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: check_if_open
+      entities:
+        - day_: "Monday"
+    - action: action_get_open_information
+    - intent: thanks_giving
+
+- story: Check if restaurant is open on given day and time
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: check_if_open
+      entities:
+        - day_: "Friday"
+        - time_: "14:30"
+    - action: action_get_open_information
+    - intent: thanks_giving
+
+- story: Display opening hours
+  steps:
+  - intent: show_opening_hours
+  - action: action_show_opening_hours
+  - intent: thanks_giving
+  - action: utter_help
+
+- story: Display menu
+  steps:
+  - intent: menu
+  - action: action_show_menu
+
+- story: Basic food order
+  steps:
+  - intent: order_food
+    entities:
+      - food_item: "Pizza"
+  - action: action_order_food
+  - intent: affirm
+  - action: utter_order_confirmation
+
+- story: Order with special request
+  steps:
+  - intent: order_food
+    entities:
+      - food_item: "Spaghetti Carbonara"
+      - with_: "with"
+      - special_request: "extra bacon"
+  - action: action_order_food
+  - intent: affirm
+  - action: utter_order_confirmation
+
+- story: Order with special request and quantity
+  steps:
+  - intent: order_food
+    entities:
+      - food_item: "Pizza"
+      - with_: "with"
+      - special_request: "ketchup"
+      - quantity: "2"
+  - action: action_order_food
+  - intent: affirm
+  - action: utter_order_confirmation
+
+
+# wygenerowane automatycznie
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
